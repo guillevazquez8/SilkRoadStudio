@@ -3,10 +3,12 @@ package com.projects.silkroadstudio;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity
 @NoArgsConstructor
 @Getter
+@ToString
 @Inheritance(strategy = InheritanceType.JOINED)
 public class User {
 
@@ -22,6 +24,9 @@ public class User {
     private String email;
 
     private String password;
+
+    @ManyToOne
+    private Role role;
 
     public void setName(String name) {
         this.name = name;
@@ -45,15 +50,16 @@ public class User {
         this.password = password;
     }
 
-    public User(String name, String surname, String email, String password) throws IncorrectInformationProvidedException {
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    public User(String name, String surname, String email, String password, Role role) throws IncorrectInformationProvidedException {
         this.name = name;
         this.surname = surname;
         setEmail(email);
         setPassword(password);
+        this.role = role;
     }
 
-    public User(String email, String password) throws IncorrectInformationProvidedException {
-        setEmail(email);
-        setPassword(password);
-    }
 }
