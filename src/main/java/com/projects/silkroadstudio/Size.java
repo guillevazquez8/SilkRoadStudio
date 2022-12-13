@@ -36,7 +36,7 @@ public class Size {
     @Override
     public String toString() {
         return "Size{" + length +
-                " x " + width + '}';
+                " x " + width + "}";
     }
 
 }
