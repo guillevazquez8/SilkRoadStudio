@@ -1,4 +1,4 @@
-package com.projects.silkroadstudio.Size;
+package com.projects.silkroadstudio.Product.Size;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

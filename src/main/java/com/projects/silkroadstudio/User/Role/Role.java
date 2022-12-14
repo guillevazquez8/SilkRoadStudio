@@ -1,4 +1,4 @@
-package com.projects.silkroadstudio.Role;
+package com.projects.silkroadstudio.User.Role;
 
 import jakarta.persistence.*;
 import lombok.Getter;

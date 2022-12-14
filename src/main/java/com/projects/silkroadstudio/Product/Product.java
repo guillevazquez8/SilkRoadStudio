@@ -1,7 +1,7 @@
 package com.projects.silkroadstudio.Product;
 
 import com.projects.silkroadstudio.ShoppingCart.ShoppingCart;
-import com.projects.silkroadstudio.Size.Size;
+import com.projects.silkroadstudio.Product.Size.Size;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

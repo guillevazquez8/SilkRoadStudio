@@ -1,4 +1,4 @@
-package com.projects.silkroadstudio.PaymentInformation;
+package com.projects.silkroadstudio.Customer.PaymentInformation;
 
 import jakarta.persistence.*;
 import lombok.Getter;

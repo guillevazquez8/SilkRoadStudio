@@ -1,4 +1,4 @@
-package com.projects.silkroadstudio.Size;
+package com.projects.silkroadstudio.Product.Size;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

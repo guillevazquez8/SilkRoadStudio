@@ -1,4 +1,4 @@
-package com.projects.silkroadstudio.Address;
+package com.projects.silkroadstudio.Customer.Address;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

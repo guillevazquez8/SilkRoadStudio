@@ -1,4 +1,4 @@
-package com.projects.silkroadstudio.Role;
+package com.projects.silkroadstudio.User.Role;
 
 public enum ERole {
     ROLE_ADMIN,

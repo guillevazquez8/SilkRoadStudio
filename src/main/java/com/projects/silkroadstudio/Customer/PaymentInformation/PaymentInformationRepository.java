@@ -1,4 +1,4 @@
-package com.projects.silkroadstudio.PaymentInformation;
+package com.projects.silkroadstudio.Customer.PaymentInformation;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

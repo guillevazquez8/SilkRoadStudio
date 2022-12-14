@@ -1,4 +1,4 @@
-package com.projects.silkroadstudio.Address;
+package com.projects.silkroadstudio.Customer.Address;
 
 import jakarta.persistence.*;
 import lombok.Getter;
