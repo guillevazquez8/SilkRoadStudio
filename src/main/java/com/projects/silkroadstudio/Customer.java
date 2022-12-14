@@ -7,7 +7,6 @@ import lombok.Setter;
 import lombok.ToString;
 
 import java.time.LocalDate;
-import java.util.Set;
 
 @Entity
 @NoArgsConstructor
@@ -22,20 +21,15 @@ public class Customer extends User {
     private PaymentInformation paymentInformation;
 
     @ManyToOne
-    private Address address;
+    private Address shippingAddress;
+
+    @ManyToOne
+    private Address billingAddress;
 
     public Customer(String name, String surname, String email, String password, Role role, LocalDate dateOfBirth)
             throws IncorrectInformationProvidedException {
         super(name, surname, email, password, role);
         this.dateOfBirth = dateOfBirth;
-    }
-
-    public Customer(String name, String surname, String email, String password, Role role, LocalDate dateOfBirth,
-                    PaymentInformation paymentInformation, Address address) throws IncorrectInformationProvidedException {
-        super(name, surname, email, password, role);
-        this.dateOfBirth = dateOfBirth;
-        this.paymentInformation = paymentInformation;
-        this.address = address;
     }
 
 }

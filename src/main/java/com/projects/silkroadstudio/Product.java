@@ -12,7 +12,7 @@ import java.math.BigDecimal;
 @ToString
 @Getter
 @Inheritance(strategy=InheritanceType.JOINED)
-public class Product {
+public abstract class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
