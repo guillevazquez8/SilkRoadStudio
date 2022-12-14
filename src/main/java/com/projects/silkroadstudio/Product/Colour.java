@@ -1,4 +1,4 @@
-package com.projects.silkroadstudio;
+package com.projects.silkroadstudio.Product;
 
 public enum Colour {
     BLACK,

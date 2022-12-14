@@ -1,5 +1,7 @@
-package com.projects.silkroadstudio;
+package com.projects.silkroadstudio.User;
 
+import com.projects.silkroadstudio.IncorrectInformationProvidedException;
+import com.projects.silkroadstudio.Role.Role;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

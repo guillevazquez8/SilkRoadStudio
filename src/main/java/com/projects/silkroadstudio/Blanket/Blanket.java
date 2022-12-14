@@ -1,5 +1,8 @@
-package com.projects.silkroadstudio;
+package com.projects.silkroadstudio.Blanket;
 
+import com.projects.silkroadstudio.Product.Colour;
+import com.projects.silkroadstudio.Product.Product;
+import com.projects.silkroadstudio.Size.Size;
 import jakarta.persistence.Entity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

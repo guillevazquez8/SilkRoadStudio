@@ -1,4 +1,4 @@
-package com.projects.silkroadstudio;
+package com.projects.silkroadstudio.Role;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -12,7 +12,7 @@ public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
-    private long id;
+    private Long id;
 
     private ERole role;
 

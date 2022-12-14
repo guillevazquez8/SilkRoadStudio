@@ -1,5 +1,7 @@
-package com.projects.silkroadstudio;
+package com.projects.silkroadstudio.Product;
 
+import com.projects.silkroadstudio.ShoppingCart.ShoppingCart;
+import com.projects.silkroadstudio.Size.Size;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,7 +19,7 @@ public abstract class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
-    private long id;
+    private Long id;
 
     private String material;
 

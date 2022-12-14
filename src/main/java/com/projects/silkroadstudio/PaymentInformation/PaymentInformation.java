@@ -1,4 +1,4 @@
-package com.projects.silkroadstudio;
+package com.projects.silkroadstudio.PaymentInformation;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -16,7 +16,7 @@ public class PaymentInformation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
-    private long id;
+    private Long id;
 
     private String cardNumber;
 

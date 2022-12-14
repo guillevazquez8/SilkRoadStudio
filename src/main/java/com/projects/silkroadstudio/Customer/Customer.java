@@ -1,5 +1,10 @@
-package com.projects.silkroadstudio;
+package com.projects.silkroadstudio.Customer;
 
+import com.projects.silkroadstudio.Address.Address;
+import com.projects.silkroadstudio.IncorrectInformationProvidedException;
+import com.projects.silkroadstudio.PaymentInformation.PaymentInformation;
+import com.projects.silkroadstudio.Role.Role;
+import com.projects.silkroadstudio.User.User;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

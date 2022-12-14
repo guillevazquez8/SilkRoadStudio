@@ -1,10 +1,11 @@
-package com.projects.silkroadstudio;
+package com.projects.silkroadstudio.ShoppingCart;
 
+import com.projects.silkroadstudio.Customer.Customer;
+import com.projects.silkroadstudio.Product.Product;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import org.hibernate.annotations.NaturalId;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -18,7 +19,7 @@ public class ShoppingCart {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     private BigDecimal price;
 

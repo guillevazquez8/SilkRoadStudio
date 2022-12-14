@@ -1,4 +1,4 @@
-package com.projects.silkroadstudio;
+package com.projects.silkroadstudio.Size;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,7 +14,7 @@ public class Size {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     private Integer length;
 

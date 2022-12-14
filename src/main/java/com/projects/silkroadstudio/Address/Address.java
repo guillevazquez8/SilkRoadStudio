@@ -1,4 +1,4 @@
-package com.projects.silkroadstudio;
+package com.projects.silkroadstudio.Address;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -14,7 +14,7 @@ public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
-    private long id;
+    private Long id;
 
     private String street;
 
