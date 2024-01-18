@@ -5,7 +5,7 @@ import com.projects.silkroadstudio.Product.Product;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -13,7 +13,6 @@ import java.util.List;
 
 @Entity
 @NoArgsConstructor
-@ToString
 @Getter
 public class ShoppingCart {
 
@@ -21,30 +20,22 @@ public class ShoppingCart {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Setter
     private BigDecimal price;
 
+    @Setter
     private LocalDate deliveryDate;
 
     @OneToMany(mappedBy = "shoppingCart")
+    @Setter
     private List<Product> products;
 
     @OneToOne
+    @Setter
     private Customer customer;
-
-    public void setPrice(BigDecimal price) {
-        this.price = price;
-    }
-
-    public void setDeliveryDate(LocalDate deliveryDate) {
-        this.deliveryDate = deliveryDate;
-    }
 
     public void setProducts(List<Product> products) {
         this.products = products;
-    }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
     }
 
     public ShoppingCart(BigDecimal price, LocalDate deliveryDate, List<Product> products, Customer customer) {
@@ -54,4 +45,12 @@ public class ShoppingCart {
         this.customer = customer;
     }
 
+    @Override
+    public String toString() {
+        return getClass().getSimpleName() + "(" +
+                "id = " + id + ", " +
+                "price = " + price + ", " +
+                "deliveryDate = " + deliveryDate + ", " +
+                "customer = " + customer + ")";
+    }
 }
