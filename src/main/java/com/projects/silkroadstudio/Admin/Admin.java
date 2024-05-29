@@ -1,6 +1,6 @@
 package com.projects.silkroadstudio.Admin;
 
-import com.projects.silkroadstudio.IncorrectInformationProvidedException;
+import com.projects.silkroadstudio.exceptions.IncorrectInformationProvidedException;
 import com.projects.silkroadstudio.User.Role.Role;
 import com.projects.silkroadstudio.User.User;
 import jakarta.persistence.Entity;

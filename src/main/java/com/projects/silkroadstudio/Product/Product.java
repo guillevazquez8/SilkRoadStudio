@@ -3,9 +3,7 @@ package com.projects.silkroadstudio.Product;
 import com.projects.silkroadstudio.ShoppingCart.ShoppingCart;
 import com.projects.silkroadstudio.Product.Size.Size;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import java.math.BigDecimal;
 
@@ -13,12 +11,14 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @ToString
 @Getter
+@Setter
 @Inheritance(strategy=InheritanceType.JOINED)
 public abstract class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
+    @Setter(AccessLevel.NONE)
     private Long id;
 
     private String material;
@@ -33,26 +33,6 @@ public abstract class Product {
 
     @ManyToOne
     private ShoppingCart shoppingCart;
-
-    public void setMaterial(String material) {
-        this.material = material;
-    }
-
-    public void setPrice(BigDecimal price) {
-        this.price = price;
-    }
-
-    public void setColour(Colour colour) {
-        this.colour = colour;
-    }
-
-    public void setSize(Size size) {
-        this.size = size;
-    }
-
-    public void setShoppingCart(ShoppingCart shoppingCart) {
-        this.shoppingCart = shoppingCart;
-    }
 
     public Product(String material, BigDecimal price, Colour colour, Size size) {
         this.material = material;

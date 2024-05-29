@@ -6,6 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @NoArgsConstructor
@@ -16,17 +17,11 @@ public class Size {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Setter
     private Integer length;
 
+    @Setter
     private Integer width;
-
-    public void setLength(Integer length) {
-        this.length = length;
-    }
-
-    public void setWidth(Integer width) {
-        this.width = width;
-    }
 
     public Size(Integer length, Integer width) {
         this.length = length;

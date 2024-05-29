@@ -1,4 +1,4 @@
-package com.projects.silkroadstudio;
+package com.projects.silkroadstudio.exceptions;
 
 public class IncorrectInformationProvidedException extends Exception {
 
