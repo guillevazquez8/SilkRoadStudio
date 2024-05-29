@@ -5,6 +5,7 @@ import com.projects.silkroadstudio.User.Role.Role;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
 
 @Entity
@@ -19,24 +20,19 @@ public abstract class User {
     @Column(nullable = false)
     private Long id;
 
+    @Setter
     private String name;
 
+    @Setter
     private String surname;
 
     private String email;
 
     private String password;
 
+    @Setter
     @ManyToOne
     private Role role;
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
 
     public void setEmail(String email) throws IncorrectInformationProvidedException {
         if (!email.contains("@")) {
@@ -50,10 +46,6 @@ public abstract class User {
             throw new IncorrectInformationProvidedException("Your password is too short");
         }
         this.password = password;
-    }
-
-    public void setRole(Role role) {
-        this.role = role;
     }
 
     public User(String name, String surname, String email, String password, Role role) throws IncorrectInformationProvidedException {

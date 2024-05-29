@@ -3,6 +3,7 @@ package com.projects.silkroadstudio.Customer.Address;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
 
 @Entity
@@ -16,29 +17,17 @@ public class Address {
     @Column(nullable = false)
     private Long id;
 
+    @Setter
     private String street;
 
+    @Setter
     private String city;
 
+    @Setter
     private Integer postcode;
 
+    @Setter
     private String country;
-
-    public void setStreet(String street) {
-        this.street = street;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public void setPostcode(Integer postcode) {
-        this.postcode = postcode;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
-    }
 
     public Address(String street, String city, Integer postcode, String country) {
         this.street = street;

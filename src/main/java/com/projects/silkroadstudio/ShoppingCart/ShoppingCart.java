@@ -34,10 +34,6 @@ public class ShoppingCart {
     @Setter
     private Customer customer;
 
-    public void setProducts(List<Product> products) {
-        this.products = products;
-    }
-
     public ShoppingCart(BigDecimal price, LocalDate deliveryDate, List<Product> products, Customer customer) {
         this.price = price;
         this.deliveryDate = deliveryDate;

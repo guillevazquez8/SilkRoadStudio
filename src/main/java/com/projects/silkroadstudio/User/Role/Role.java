@@ -3,6 +3,7 @@ package com.projects.silkroadstudio.User.Role;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Getter
@@ -14,11 +15,9 @@ public class Role {
     @Column(nullable = false)
     private Long id;
 
+    @Setter
+    @Enumerated(EnumType.STRING)
     private ERole role;
-
-    public void setRole(ERole role) {
-        this.role = role;
-    }
 
     public Role(ERole role) {
         this.role = role;
