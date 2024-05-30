@@ -30,8 +30,8 @@ public abstract class User {
 
     private String password;
 
-    @Setter
     @ManyToOne
+    @Setter
     private Role role;
 
     public void setEmail(String email) throws IncorrectInformationProvidedException {
@@ -48,12 +48,11 @@ public abstract class User {
         this.password = password;
     }
 
-    public User(String name, String surname, String email, String password, Role role) throws IncorrectInformationProvidedException {
+    public User(String name, String surname, String email, String password) throws IncorrectInformationProvidedException {
         this.name = name;
         this.surname = surname;
         setEmail(email);
         setPassword(password);
-        this.role = role;
     }
 
 }

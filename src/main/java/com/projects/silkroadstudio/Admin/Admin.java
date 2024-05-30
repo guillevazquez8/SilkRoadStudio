@@ -1,5 +1,6 @@
 package com.projects.silkroadstudio.Admin;
 
+import com.projects.silkroadstudio.User.Role.ERole;
 import com.projects.silkroadstudio.exceptions.IncorrectInformationProvidedException;
 import com.projects.silkroadstudio.User.Role.Role;
 import com.projects.silkroadstudio.User.User;
@@ -16,8 +17,9 @@ import lombok.ToString;
 @ToString
 public class Admin extends User {
 
-    public Admin(String name, String surname, String email, String password, Role role) throws IncorrectInformationProvidedException {
-        super(name ,surname, email, password, role);
+    public Admin(String name, String surname, String email, String password) throws IncorrectInformationProvidedException {
+        super(name ,surname, email, password);
+        setRole(new Role(ERole.ROLE_ADMIN));
     }
 
 }
