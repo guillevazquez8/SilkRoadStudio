@@ -1,6 +1,6 @@
 package com.projects.silkroadstudio.ShoppingCart;
 
-import com.projects.silkroadstudio.Customer.Customer;
+import com.projects.silkroadstudio.User.Customer.Customer;
 import com.projects.silkroadstudio.Product.Product;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -17,7 +17,7 @@ import java.util.List;
 public class ShoppingCart {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Setter

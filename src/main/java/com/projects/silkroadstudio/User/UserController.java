@@ -2,9 +2,7 @@ package com.projects.silkroadstudio.User;
 
 import com.projects.silkroadstudio.exceptions.IncorrectInformationProvidedException;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -13,8 +11,14 @@ public class UserController {
 
     private final UserService userService;
 
-    @GetMapping("/{userId}")
-    public User findById(Long userId) throws IncorrectInformationProvidedException {
-        return userService.findById(userId);
+    @GetMapping("/{id}")
+    public User findById(@PathVariable Long id) throws IncorrectInformationProvidedException {
+        return userService.findById(id);
     }
+
+    @GetMapping("/findByName/{name}")
+    public User findByName(@PathVariable String name) throws IncorrectInformationProvidedException {
+        return userService.findByName(name);
+    }
+
 }

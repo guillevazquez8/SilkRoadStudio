@@ -11,7 +11,7 @@ import lombok.ToString;
 @Entity
 @NoArgsConstructor
 @Getter
-@ToString
+@ToString(callSuper = true)
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class User {
 
@@ -31,7 +31,6 @@ public abstract class User {
     private String password;
 
     @ManyToOne
-    @Setter
     private Role role;
 
     public void setEmail(String email) throws IncorrectInformationProvidedException {
@@ -46,6 +45,10 @@ public abstract class User {
             throw new IncorrectInformationProvidedException("Your password is too short");
         }
         this.password = password;
+    }
+
+    public void setRole(Role role) throws IncorrectInformationProvidedException {
+        this.role = role;
     }
 
     public User(String name, String surname, String email, String password) throws IncorrectInformationProvidedException {

@@ -16,7 +16,7 @@ import java.math.BigDecimal;
 public abstract class Product {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false)
     @Setter(AccessLevel.NONE)
     private Long id;
