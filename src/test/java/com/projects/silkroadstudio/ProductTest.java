@@ -14,7 +14,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
@@ -24,6 +27,8 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
 public class ProductTest {
@@ -52,7 +57,7 @@ public class ProductTest {
         Blanket blanket1 = new Blanket(Material.SILK, new BigDecimal(100), Colour.BEIGE, size1);
         productRepository.save(blanket1);
         Carpet carpet1 = new Carpet(Material.LEATHER, new BigDecimal(1000), Colour.WHITE, size1);
-        productRepository.save(blanket1);
+        productRepository.save(carpet1);
     }
 
     @AfterEach
@@ -64,9 +69,19 @@ public class ProductTest {
     @SneakyThrows
     @Test
     void testGetProductByMaterial() {
-        List<Product> products = productService.getAllByMaterial("silk");
+        List<Product> products = productService.getAllByMaterial("SILK");
         assertEquals(products.size(), 2);
     }
 
+    @SneakyThrows
+    @Test
+    void testGetProductByMaterialWeb() {
+        mockMvc.perform(MockMvcRequestBuilders
+                        .get("/product/material/{material}", "leather")
+                        .accept(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(MockMvcResultMatchers.jsonPath("$[0].material").value("LEATHER"));
+    }
 
 }

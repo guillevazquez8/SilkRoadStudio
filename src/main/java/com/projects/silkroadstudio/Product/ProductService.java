@@ -34,7 +34,7 @@ public class ProductService {
         List<String> materials = Stream.of(Material.values())
                 .map(Material::name)
                 .toList();
-        if (!materials.contains(material.toUpperCase())) {
+        if (!materials.contains(material)) {
             throw new IncorrectInformationProvidedException(String.format("Material $s is not valid", material));
         }
         // assign random value to initialize variable

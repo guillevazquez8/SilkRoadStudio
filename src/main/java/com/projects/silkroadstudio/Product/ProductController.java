@@ -19,6 +19,6 @@ public class ProductController {
 
     @GetMapping("/material/{material}")
     public List<Product> getAllByMaterial(@PathVariable String material) throws IncorrectInformationProvidedException {
-        return productService.getAllByMaterial(material);
+        return productService.getAllByMaterial(material.toUpperCase());
     }
 }
