@@ -21,7 +21,8 @@ public abstract class Product {
     @Setter(AccessLevel.NONE)
     private Long id;
 
-    private String material;
+    @Enumerated(value = EnumType.STRING)
+    private Material material;
 
     private BigDecimal price;
 
@@ -34,7 +35,7 @@ public abstract class Product {
     @ManyToOne
     private ShoppingCart shoppingCart;
 
-    public Product(String material, BigDecimal price, Colour colour, Size size) {
+    public Product(Material material, BigDecimal price, Colour colour, Size size) {
         this.material = material;
         this.price = price;
         this.colour = colour;

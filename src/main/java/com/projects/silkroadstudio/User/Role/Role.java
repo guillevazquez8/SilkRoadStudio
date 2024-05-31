@@ -19,6 +19,7 @@ public class Role {
 
     @Setter
     @Enumerated(EnumType.STRING)
+    @Column(unique=true)
     private ERole role;
 
     public Role(ERole role) {

@@ -1,6 +1,7 @@
 package com.projects.silkroadstudio.Product.Cushion;
 
 import com.projects.silkroadstudio.Product.Colour;
+import com.projects.silkroadstudio.Product.Material;
 import com.projects.silkroadstudio.Product.Product;
 import com.projects.silkroadstudio.Product.Size.Size;
 import jakarta.persistence.Entity;
@@ -16,7 +17,7 @@ import java.math.BigDecimal;
 @Setter
 public class Cushion extends Product {
 
-    public Cushion(String material, BigDecimal price, Colour colour, Size size) {
+    public Cushion(Material material, BigDecimal price, Colour colour, Size size) {
         super(material, price, colour, size);
     }
 

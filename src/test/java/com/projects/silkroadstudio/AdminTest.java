@@ -7,6 +7,7 @@ import com.projects.silkroadstudio.User.Role.ERole;
 import com.projects.silkroadstudio.User.Role.Role;
 import com.projects.silkroadstudio.User.Role.RoleRepository;
 import com.projects.silkroadstudio.User.User;
+import com.projects.silkroadstudio.exceptions.NotFoundException;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -38,6 +39,9 @@ public class AdminTest {
         mockMvc = MockMvcBuilders
                 .webAppContextSetup(webApplicationContext)
                 .build();
+
+        Role admin_role = new Role(ERole.ROLE_ADMIN);
+        roleRepository.save(admin_role);
     }
 
     @AfterEach
@@ -49,8 +53,10 @@ public class AdminTest {
     @SneakyThrows
     @Test
     void testCreateAdmin() {
-        Role admin_role = new Role(ERole.ROLE_ADMIN);
-        roleRepository.save(admin_role);
+        if (roleRepository.findByRole(ERole.ROLE_ADMIN).isEmpty()) {
+            throw new NotFoundException("Role admin not found");
+        }
+        Role admin_role = roleRepository.findByRole(ERole.ROLE_ADMIN).get();
         Admin admin_user = new Admin("Iago", "Aspas", "iagoaspas@email.com", "12345678910", admin_role);
         Admin admin1 = adminService.save(admin_user);
 
