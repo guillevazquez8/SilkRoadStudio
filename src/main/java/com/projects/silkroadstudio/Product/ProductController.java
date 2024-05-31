@@ -1,5 +1,6 @@
 package com.projects.silkroadstudio.Product;
 
+import com.projects.silkroadstudio.exceptions.IncorrectInformationProvidedException;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +18,7 @@ public class ProductController {
     private final ProductService productService;
 
     @GetMapping("/material/{material}")
-    public List<Product> getAllByMaterial(@PathVariable String material) {
+    public List<Product> getAllByMaterial(@PathVariable String material) throws IncorrectInformationProvidedException {
         return productService.getAllByMaterial(material);
     }
 }

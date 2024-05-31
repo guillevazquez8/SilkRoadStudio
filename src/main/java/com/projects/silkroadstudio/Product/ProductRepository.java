@@ -10,6 +10,6 @@ import java.util.Optional;
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long> {
 
-    @Query("select p from product where p.material = ?1")
-    Optional<List<Product>> getAllByMaterial(String material);
+    @Query("select p from Product p where p.material = ?1")
+    Optional<List<Product>> getAllByMaterial(Material material);
 }

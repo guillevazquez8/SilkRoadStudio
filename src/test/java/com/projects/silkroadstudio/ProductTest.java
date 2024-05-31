@@ -1,11 +1,9 @@
 package com.projects.silkroadstudio;
 
+import com.projects.silkroadstudio.Product.*;
 import com.projects.silkroadstudio.Product.Blanket.Blanket;
 import com.projects.silkroadstudio.Product.Carpet.Carpet;
-import com.projects.silkroadstudio.Product.Colour;
 import com.projects.silkroadstudio.Product.Cushion.Cushion;
-import com.projects.silkroadstudio.Product.Material;
-import com.projects.silkroadstudio.Product.ProductRepository;
 import com.projects.silkroadstudio.Product.Size.Size;
 import com.projects.silkroadstudio.Product.Size.SizeRepository;
 import com.projects.silkroadstudio.User.Role.ERole;
@@ -13,6 +11,7 @@ import com.projects.silkroadstudio.User.Role.Role;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
@@ -20,6 +19,11 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
 import java.math.BigDecimal;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
 public class ProductTest {
@@ -28,6 +32,8 @@ public class ProductTest {
     private ProductRepository productRepository;
     @Autowired
     private SizeRepository sizeRepository;
+    @Autowired
+    private ProductService productService;
     @Autowired
     private WebApplicationContext webApplicationContext;
     private MockMvc mockMvc;
@@ -54,4 +60,13 @@ public class ProductTest {
         productRepository.deleteAll();
         sizeRepository.deleteAll();
     }
+
+    @SneakyThrows
+    @Test
+    void testGetProductByMaterial() {
+        List<Product> products = productService.getAllByMaterial("silk");
+        assertEquals(products.size(), 2);
+    }
+
+
 }
