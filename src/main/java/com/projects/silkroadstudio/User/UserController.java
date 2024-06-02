@@ -1,12 +1,14 @@
 package com.projects.silkroadstudio.User;
 
 import com.projects.silkroadstudio.exceptions.IncorrectInformationProvidedException;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/user")
+@Tag(name = "User", description = "API to get users")
 public class UserController {
 
     private final UserService userService;
