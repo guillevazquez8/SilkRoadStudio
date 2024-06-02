@@ -1,4 +1,4 @@
-package com.projects.silkroadstudio.ShoppingCart;
+package com.projects.silkroadstudio.Order;
 
 import com.projects.silkroadstudio.User.Customer.Customer;
 import com.projects.silkroadstudio.Product.Product;
@@ -14,7 +14,7 @@ import java.util.List;
 @Entity
 @NoArgsConstructor
 @Getter
-public class ShoppingCart {
+public class Order {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -23,22 +23,30 @@ public class ShoppingCart {
     @Setter
     private BigDecimal price;
 
-    @Setter
     private LocalDate deliveryDate;
 
-    @OneToMany(mappedBy = "shoppingCart")
+    @OneToMany(mappedBy = "order")
     @Setter
     private List<Product> products;
 
-    @OneToOne
+    @ManyToOne
     @Setter
     private Customer customer;
 
-    public ShoppingCart(BigDecimal price, LocalDate deliveryDate, List<Product> products, Customer customer) {
+    @Setter
+    private Boolean confirmed;
+
+    public void setDeliveryDate() {
+        // it takes 3 days to deliver
+        this.deliveryDate = LocalDate.now().plusDays(3L);
+    }
+
+    public Order(BigDecimal price, List<Product> products, Customer customer) {
         this.price = price;
-        this.deliveryDate = deliveryDate;
+        setDeliveryDate();
         this.products = products;
         this.customer = customer;
+        setConfirmed(false);
     }
 
     @Override

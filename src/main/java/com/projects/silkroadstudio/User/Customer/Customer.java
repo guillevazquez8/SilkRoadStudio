@@ -1,5 +1,6 @@
 package com.projects.silkroadstudio.User.Customer;
 
+import com.projects.silkroadstudio.Order.Order;
 import com.projects.silkroadstudio.User.Customer.Address.Address;
 import com.projects.silkroadstudio.User.Role.ERole;
 import com.projects.silkroadstudio.exceptions.IncorrectInformationProvidedException;
@@ -13,6 +14,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
@@ -31,6 +33,9 @@ public class Customer extends User {
 
     @ManyToOne
     private Address billingAddress;
+
+    @OneToMany(mappedBy = "customer")
+    private List<Order> myOrders;
 
     @Override
     public void setRole(Role role) throws IncorrectInformationProvidedException {

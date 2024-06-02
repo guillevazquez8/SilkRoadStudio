@@ -9,4 +9,8 @@ public class CarpetService {
 
     private final CarpetRepository carpetRepository;
 
+    public Carpet save(Carpet carpet) {
+        return carpetRepository.save(carpet);
+    }
+
 }

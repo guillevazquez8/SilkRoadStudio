@@ -1,6 +1,6 @@
 package com.projects.silkroadstudio.Product;
 
-import com.projects.silkroadstudio.ShoppingCart.ShoppingCart;
+import com.projects.silkroadstudio.Order.Order;
 import com.projects.silkroadstudio.Product.Size.Size;
 import jakarta.persistence.*;
 import lombok.*;
@@ -33,7 +33,7 @@ public abstract class Product {
     private Size size;
 
     @ManyToOne
-    private ShoppingCart shoppingCart;
+    private Order order;
 
     public Product(Material material, BigDecimal price, Colour colour, Size size) {
         this.material = material;
