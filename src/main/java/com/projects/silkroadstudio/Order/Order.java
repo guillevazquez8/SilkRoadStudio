@@ -25,7 +25,10 @@ public class Order {
 
     private LocalDate deliveryDate;
 
-    @OneToMany(mappedBy = "order")
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "order_products",
+            joinColumns = @JoinColumn(name = "order_id"),
+            inverseJoinColumns = @JoinColumn(name = "product_id"))
     @Setter
     private List<Product> products;
 
@@ -38,11 +41,19 @@ public class Order {
 
     public void setDeliveryDate() {
         // it takes 3 days to deliver
-        this.deliveryDate = LocalDate.now().plusDays(3L);
+        this.deliveryDate = LocalDate.now().plusDays(3);
     }
 
-    public Order(BigDecimal price, List<Product> products, Customer customer) {
+    public void setInitialPrice(List<Product> products) {
+        BigDecimal price = new BigDecimal(0);
+        for (Product each_product : products) {
+            price.add(each_product.getPrice());
+        }
         this.price = price;
+    }
+
+    public Order(List<Product> products, Customer customer) {
+        setInitialPrice(products);
         setDeliveryDate();
         this.products = products;
         this.customer = customer;

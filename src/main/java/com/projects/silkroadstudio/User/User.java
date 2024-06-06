@@ -26,19 +26,13 @@ public abstract class User {
     @Setter
     private String surname;
 
+    @Setter
     private String email;
 
     private String password;
 
     @ManyToOne
     private Role role;
-
-    public void setEmail(String email) throws IncorrectInformationProvidedException {
-        if (!email.contains("@")) {
-            throw new IncorrectInformationProvidedException("Email provided is incorrect, please provide the right email");
-        }
-        this.email = email;
-    }
 
     public void setPassword(String password) throws IncorrectInformationProvidedException {
         if (password.length() < 10) {
